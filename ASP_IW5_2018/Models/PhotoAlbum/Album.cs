@@ -1,8 +1,5 @@
-﻿using ASP_IW5_2018.Models.Interfaces;
-using System;
+﻿using ASP_IW5_2018.Infrastructure.Interface;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ASP_IW5_2018.Models.PhotoAlbum
 {

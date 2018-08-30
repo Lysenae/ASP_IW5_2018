@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ASP_IW5_2018.Models.Interfaces;
+using ASP_IW5_2018.Infrastructure.Interface;
 
 namespace ASP_IW5_2018.Models.PhotoAlbum
 {
@@ -18,5 +16,10 @@ namespace ASP_IW5_2018.Models.PhotoAlbum
         public IList<PhotoAlbum> PhotoAlbums { get; set; }
         public IList<PhotoItem> PhotoItems { get; set; }
         public IList<PhotoPerson> PhotoPersons { get; set; }
+
+        public override string ToString()
+        {
+            return $"Photo: [Name: {Name}, DateTaken: {DateTaken}, Format: {Format}, Note: {Note}]";
+        }
     }
 }

@@ -2,6 +2,7 @@
 using ASP_IW5_2018.Models.PhotoAlbum;
 using Microsoft.Extensions.Configuration;
 using System.IO;
+using ASP_IW5_2018.ViewModels.PhotoAlbum;
 
 namespace ASP_IW5_2018.Infrastructure.Database
 {
@@ -48,5 +49,6 @@ namespace ASP_IW5_2018.Infrastructure.Database
         public DbSet<PhotoAlbum> PhotoAlbums { get; set; }
         public DbSet<PhotoItem> PhotoItems { get; set; }
         public DbSet<PhotoPerson> PhotoPersons { get; set; }
+        public DbSet<PhotoResolution> Resolutions { get; set; }
     }
 }

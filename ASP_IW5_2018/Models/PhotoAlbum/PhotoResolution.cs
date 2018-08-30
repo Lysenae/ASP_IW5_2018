@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ASP_IW5_2018.Models.Interfaces;
+﻿using ASP_IW5_2018.Infrastructure.Interface;
 
 namespace ASP_IW5_2018.Models.PhotoAlbum
 {
@@ -14,5 +10,10 @@ namespace ASP_IW5_2018.Models.PhotoAlbum
 
         public int PhotoId { get; set; }
         public Photo Photo { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Width}x{Height}";
+        }
     }
 }

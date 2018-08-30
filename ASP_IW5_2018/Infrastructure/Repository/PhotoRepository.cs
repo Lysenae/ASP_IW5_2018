@@ -1,12 +1,12 @@
 ﻿using ASP_IW5_2018.Infrastructure.Database;
-using ASP_IW5_2018.Models.Interfaces;
+using ASP_IW5_2018.Infrastructure.Interface;
 using ASP_IW5_2018.Models.PhotoAlbum;
-using System;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
 
-namespace ASP_IW5_2018.Models.Repository
+namespace ASP_IW5_2018.Infrastructure.Repository
 {
     public class PhotoRepository : IRepository<Photo>
     {
@@ -19,6 +19,9 @@ namespace ASP_IW5_2018.Models.Repository
             using (PhotoAlbumDbContext ctx = new PhotoAlbumDbContext())
             {
                 ctx.Photos.Add(item);
+                item.Resolution.Photo = item;
+                item.Resolution.PhotoId = item.Id;
+                ctx.Resolutions.Add(item.Resolution);
                 ctx.SaveChanges();
             }
         }
@@ -28,7 +31,12 @@ namespace ASP_IW5_2018.Models.Repository
             using (PhotoAlbumDbContext ctx = new PhotoAlbumDbContext())
             {
                 foreach (Photo p in items)
+                {
                     ctx.Photos.Add(p);
+                    p.Resolution.Photo = p;
+                    p.Resolution.PhotoId = p.Id;
+                    ctx.Resolutions.Add(p.Resolution);
+                }
                 ctx.SaveChanges();
             }
         }
@@ -40,7 +48,7 @@ namespace ASP_IW5_2018.Models.Repository
 
             using (PhotoAlbumDbContext ctx = new PhotoAlbumDbContext())
             {
-                return ctx.Photos.Find(id);
+                return ctx.Photos.Include(x => x.Resolution).ToList().Find(x => x.Id == id);
             }
         }
 
@@ -48,7 +56,7 @@ namespace ASP_IW5_2018.Models.Repository
         {
             using (PhotoAlbumDbContext ctx = new PhotoAlbumDbContext())
             {
-                return ctx.Photos.ToList();
+                return ctx.Photos.Include(x => x.Resolution).ToList();
             }
         }
 

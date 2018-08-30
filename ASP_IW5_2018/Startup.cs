@@ -55,6 +55,10 @@ namespace ASP_IW5_2018
 
             app.UseMvc(routes =>
             {
+                //routes.MapRoute(
+                //    name: "photoDetails",
+                //    template: "photo/{id}",
+                //    defaults: new { controller = "Photo", action = "Details" });
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");

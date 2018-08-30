@@ -1,4 +1,4 @@
-﻿using ASP_IW5_2018.Models.Interfaces;
+﻿using ASP_IW5_2018.Infrastructure.Interface;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ASP_IW5_2018.Models.Interfaces
+namespace ASP_IW5_2018.Infrastructure.Interface
 {
     public interface IRepository<T>
     {
